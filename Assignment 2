@@ -45,6 +45,8 @@ country_as_columns, years__as_columns = countries_years(
     file_name="C:/Users/sai/OneDrive/Desktop/sai_data/ads_bank_data.csv"
 )
 print(country_as_columns, years__as_columns)
+summary_stats = orginal_dataframe.describe()
+print(summary_stats)
 
 def countries_years(file_name):
     """This work takes a filename as contention, peruses a dataframe in World bank organize
@@ -98,7 +100,8 @@ returns the sifted dataframe for the marker with given nations and a long time""
 # driver code for plotting_data function
 collected_data = plotting_data(indicator_name="Population growth (annual %)")
 plotting_data(indicator_name="Electricity production from natural gas sources (% of total)")
-
+summary_stats = collected_data.describe()
+print(summary_stats)
 
 def mean_stats():
     """This function plots the bar graph for the mean of the population growth with the help of
