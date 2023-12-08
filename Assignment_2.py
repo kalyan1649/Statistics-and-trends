@@ -39,8 +39,7 @@ and returns two dataframes:one with a long time as columns and one with nations 
 
     return country_columns, years_columns
 
-
-df = pd.DataFrame(main_dataframe)
+#df = pd.DataFrame(main_dataframe)
 
 # Grouping by the 'Category' column and calculating the mean for each group
 #grouped_df = df.groupby('countries').mean()
