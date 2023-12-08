@@ -8,7 +8,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-"Seaborn is built on best of Matplotlib and gives a high-level interface for making appealing and instructive statistical design"
+"""Seaborn is built on best of Matplotlib and gives a high-level interface
+    for making appealing and instructive statistical design"""
 # Data taken from WorldBank.org
 
 # Countries and years for analysis
@@ -60,7 +61,7 @@ and returns two dataframes:one with a long time as columns and one with nations 
     # read the csv file
     #read_data = pd.read_csv(file_name)
 
-    # # Get unique values of Country Name and set as columns of the dataframe and transpose the dataframe
+    # Get unique values of Country Name and set as columns of the dataframe and transpose the dataframe
     # country_columns = (
     #     pd.DataFrame({"Country Name": read_data["Country Name"].unique()})
     #     .set_index("Country Name")
