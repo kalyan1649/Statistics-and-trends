@@ -4,7 +4,6 @@ Created on Thu Nov 12 04:26:49 2023
 
 @author: sai
 """
-
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -41,6 +40,13 @@ and returns two dataframes:one with a long time as columns and one with nations 
     return country_columns, years_columns
 
 
+df = pd.DataFrame(main_dataframe)
+
+# Grouping by the 'Category' column and calculating the mean for each group
+grouped_df = df.groupby('countries').mean()
+
+# Displaying the result
+print(grouped_df)
 country_as_columns, years__as_columns = countries_years(
     file_name="C:/Users/sai/OneDrive/Desktop/sai_data/ads_bank_data.csv"
 )
@@ -68,11 +74,10 @@ and returns two dataframes:one with a long time as columns and one with nations 
     #     pd.DataFrame({"Year": read_data.columns[4:]}).set_index("Year").transpose()
     # )
 
+
 def plotting_data(indicator_name):
     """This work takes pointer title as contention, It plots the bar chart for the dataframe and
 returns the sifted dataframe for the marker with given nations and a long time"""
-
-
 
     if indicator_name == "Population growth (annual %)":
         label = "Percentage (%)"
@@ -88,20 +93,18 @@ returns the sifted dataframe for the marker with given nations and a long time""
     # filter the dataframe with given years and reset the index
     refined_df = selected_data.loc[:, years].reset_index()
 
-    
-
     refined_df.set_index("Country Name").plot.bar(
         rot=0, xlabel="Nations", ylabel=label, title=indicator_name
     )
 
     return refined_df
 
-
 # driver code for plotting_data function
 collected_data = plotting_data(indicator_name="Population growth (annual %)")
 plotting_data(indicator_name="Electricity production from natural gas sources (% of total)")
 summary_stats = collected_data.describe()
 print(summary_stats)
+
 
 def mean_stats():
     """This function plots the bar graph for the mean of the population growth with the help of
@@ -113,7 +116,6 @@ def mean_stats():
     mean_data.set_index("Years").plot.bar(
         rot=0, title="Annual mean of the population growth"
     )
-
 
 # driver code for mean_stats function
 mean_stats()
